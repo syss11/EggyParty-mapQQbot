@@ -13,7 +13,8 @@ import time
 # ========== 创建 BotClient ==========
 bot = BotClient()
 _log = get_log()
-
+LOGINID=''
+LOGINTOKEN=''#抱歉，为了我的个人隐私，这一项需要你们自己的微信login信息
 
 
 @bot.private_event()
@@ -78,7 +79,7 @@ async def on_search_map(msg:GroupMessage):
         if command[0]=="搜索地图":
             query=command[1]
             try:
-                response=requests.get('https://u5pyq.webapp.163.com/apps/u5/web/search_multi?&range=10&page=0&tab=2&sort=0&login_id=143920078&login_token=8e7584ca384f4316bae60293c2b428f4',
+                response=requests.get('https://u5pyq.webapp.163.com/apps/u5/web/search_multi?&range=10&page=0&tab=2&sort=0&login_id='+LOGINID+'&login_token='+LOGINTOKEN,
                                       params={'keyword':query},headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF WindowsWechat(0x63090c37)XWEB/14185"}
                                         )
                 if response.status_code!=200:
