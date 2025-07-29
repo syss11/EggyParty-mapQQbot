@@ -1,0 +1,2 @@
+ncatbot==3.8.8.post7
+requests>=2.31.0
